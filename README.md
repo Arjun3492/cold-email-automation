@@ -2,6 +2,10 @@
 
 This project is a Node.js script for sending cold emails to a list of companies extracted from a PDF document. It uses pooled SMTP connections for efficient email sending.
 
+# Preview
+
+![Preview](image.png)
+
 ## Getting Started
 
 Follow these steps to set up and run the project on your local machine:
