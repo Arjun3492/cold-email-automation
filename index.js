@@ -10,7 +10,7 @@ const resumePath = process.env.resumePath; // Path to the resume
 const userEmail = process.env.userEmail;  // Your email address
 const userAppPassword = process.env.userAppPassword;  // Your app email password  get at [https://myaccount.google.com/apppasswords]
 const mailTitle = process.env.mailTitle;
-const templatePath = path.join(__dirname, 'email-template.html');
+const templatePath = path.join(__dirname, process.env.IS_PRIVATE ? 'private-template.html' : 'email-template.html');
 
 
 // Email body function
@@ -81,8 +81,7 @@ async function sendEmails(emails, resumePath, userEmail, userAppPassword, emailT
 
 // Main function to execute script
 async function main() {
-    // const emails = await extractEmails(companiesPdfPath);
-    const emails = ["yilteberki@gufum.com"];
+    const emails = await extractEmails(companiesPdfPath);
     await sendEmails(emails, resumePath, userEmail, userAppPassword, mailTitle, getMailBody());
     console.log('Emails sent successfully');
 }
